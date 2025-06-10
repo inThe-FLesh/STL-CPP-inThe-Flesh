@@ -16,7 +16,8 @@ enable_testing()
 
 # Test binary
 add_executable(stl_tests
-    src/vector_tests.cpp
+    src/containers/vector_tests.cpp
+    src/memory/allocator_tests.cpp
 )
 
 target_link_libraries(stl_tests
