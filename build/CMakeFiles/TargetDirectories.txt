@@ -1,2 +1,0 @@
-/home/inThe-FLesh/Programming/STL-C++/build/CMakeFiles/edit_cache.dir
-/home/inThe-FLesh/Programming/STL-C++/build/CMakeFiles/rebuild_cache.dir
