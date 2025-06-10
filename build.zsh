@@ -5,24 +5,26 @@ trap 'echo "❌ Build failed at line $LINENO"; exit 1' ERR
 echo "🔍 Checking for presence of build directory"
 
 if [[ -d build ]]; then
-  echo "✅ Build directory exists. Continuing build..."
+  echo "Build directory exists. Continuing build... ✅"
 else
   mkdir build
-  echo "📁 Build directory created."
+  echo "Build directory created. 📁"
 fi
 
 cd build
 
-echo "⚙️ Starting ninja build with Clang"
+echo "Starting ninja build with Clang ⚙️"
 
 cmake -G Ninja \
   -DCMAKE_C_COMPILER=clang \
   -DCMAKE_CXX_COMPILER=clang++ \
   ..
 
-echo "🐻 Wrapping build with Bear"
-bear -- ninja --status "📦 [%f/%t] %o\n"
+echo "Wrapping build with Bear 🐻"
+bear -- ninja
 
-ln -sf compile_commands.json ../compile_commands.json
+cd ..
 
-echo "🎉 Build Complete ✅"
+ln -sf build/compile_commands.json compile_commands.json
+
+echo "Build Complete ✅"
